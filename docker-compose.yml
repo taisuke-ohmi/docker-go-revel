@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mysql:
+    container_name: "revel_mysql"
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: revel
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - "./mysql:/var/lib/mysql"
