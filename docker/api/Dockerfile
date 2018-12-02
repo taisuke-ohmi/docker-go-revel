@@ -6,4 +6,5 @@ RUN apk update && \
     git \ 
     build-base
 
-RUN go get github.com/revel/cmd/revel
+RUN go get github.com/revel/cmd/revel \
+           github.com/revel/revel
