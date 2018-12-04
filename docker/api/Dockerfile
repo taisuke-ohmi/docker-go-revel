@@ -7,4 +7,5 @@ RUN apk update && \
     build-base
 
 RUN go get github.com/revel/cmd/revel \
-           github.com/revel/revel
+           github.com/revel/revel \
+           github.com/jinzhu/gorm
