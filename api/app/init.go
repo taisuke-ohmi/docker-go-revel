@@ -1,6 +1,8 @@
 package app
 
 import (
+	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/revel/revel"
@@ -65,10 +67,10 @@ func InitDB() {
 	DBMS := "mysql"
 	USER := "root"
 	PASS := "root"
-	PROTOCOL := "tcp(127.0.0.1:3306)"
+	PROTOCOL := "tcp(revel_mysql:3306)"
 	DBNAME := "revel"
 
-	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME
+	CONNECT := fmt.Sprintf("%s:%s@%s/%s?charset=utf8", USER, PASS, PROTOCOL, DBNAME)
 	db, err := gorm.Open(DBMS, CONNECT)
 	if err != nil {
 		panic(err.Error())
