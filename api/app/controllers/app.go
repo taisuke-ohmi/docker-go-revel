@@ -3,11 +3,13 @@ package controllers
 import (
 	"net/http"
 
+	"github.com/jinzhu/gorm"
 	"github.com/revel/revel"
 )
 
 type App struct {
 	*revel.Controller
+	DB *gorm.DB
 }
 
 func (c App) Index() revel.Result {
