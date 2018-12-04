@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"net/http"
+
 	"github.com/revel/revel"
 )
 
@@ -10,4 +12,14 @@ type App struct {
 
 func (c App) Index() revel.Result {
 	return c.Render()
+}
+
+func (c App) BadRequestJSON(s interface{}) revel.Result {
+	c.Response.Status = http.StatusBadRequest
+	return c.RenderJSON(s)
+}
+
+func (c App) ErrorJSON(s interface{}) revel.Result {
+	c.Response.Status = http.StatusInternalServerError
+	return c.RenderJSON(s)
 }
