@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"api/app"
 	"net/http"
 
 	"github.com/jinzhu/gorm"
@@ -10,6 +11,11 @@ import (
 type App struct {
 	*revel.Controller
 	DB *gorm.DB
+}
+
+func (c App) Before() revel.Result {
+	c.DB = app.Gorm
+	return nil
 }
 
 func (c App) Index() revel.Result {
