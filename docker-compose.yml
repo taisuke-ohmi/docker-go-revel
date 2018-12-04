@@ -10,6 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - "./mysql:/var/lib/mysql"
+      - "./docker/mysql:/docker-entrypoint-initdb.d"
   api:
     container_name: "revel_api"
     build: ./docker/api
