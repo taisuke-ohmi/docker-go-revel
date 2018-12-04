@@ -1,10 +1,10 @@
-package main
+package models
 
 import "github.com/jinzhu/gorm"
 
 type Message struct {
-	ID      int
-	Content string
+	ID      int    `json:"id"`
+	Content string `json:"content"`
 }
 
 func Messages(db *gorm.DB) ([]Message, error) {

@@ -3,6 +3,8 @@ package controllers
 import (
 	"log"
 
+	"api/app/models"
+
 	"github.com/revel/revel"
 )
 
@@ -17,5 +19,5 @@ func (c Message) List() revel.Result {
 		return c.ErrorJSON(Error{"Message取得に失敗しました"})
 	}
 
-	return c.RenderJSON(nil)
+	return c.RenderJSON(messages)
 }
