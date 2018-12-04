@@ -12,7 +12,7 @@ type Message struct {
 	App
 }
 
-func (c Message) List() revel.Result {
+func (c *Message) List() revel.Result {
 	messages, err := models.Messages(c.DB)
 	if err != nil {
 		log.Println(err)

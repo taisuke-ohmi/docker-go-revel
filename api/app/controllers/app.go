@@ -13,7 +13,7 @@ type App struct {
 	DB *gorm.DB
 }
 
-func (c App) Before() revel.Result {
+func (c *App) Before() revel.Result {
 	c.DB = app.Gorm
 	return nil
 }
