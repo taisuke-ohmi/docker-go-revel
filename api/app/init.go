@@ -76,5 +76,6 @@ func InitDB() {
 		panic(err.Error())
 	}
 
+	db.SingularTable(true)
 	Gorm = db
 }
